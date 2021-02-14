@@ -1,6 +1,7 @@
 package modeles;
 
-import java.util.Date;
+
+import java.sql.Date;
 
 public class Produit {
 
@@ -10,6 +11,10 @@ public class Produit {
     private double prixUnitaire;
     private int quantite;
     private Date dateCreation;
+    private Categorie categorie;
+
+    public Produit() {
+    }
 
     public Produit(Long categorieId, String designation, double prixUnitaire, int quantite, Date dateCreation) {
         this.categorieId = categorieId;
@@ -74,5 +79,23 @@ public class Produit {
 
     public void setDateCreation(Date dateCreation) {
         this.dateCreation = dateCreation;
+    }
+
+    @Override
+    public String toString() {
+        return  "{ ID: " + this.id + ", " +
+                "designation: " + this.getDesignation() + " , " +
+                "prix Unitaire: " + this.prixUnitaire + " , " +
+                "quantité: " + this.getQuantite() + " , " +
+                "Date creation: " + this.getDesignation() + " , " +
+                "categorie: " + this.getCategorie().toString() + " }";
+    }
+
+    public Categorie getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
     }
 }

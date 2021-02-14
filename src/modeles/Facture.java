@@ -1,30 +1,29 @@
 package modeles;
 
 import java.util.Date;
+import java.util.Set;
 
 public class Facture {
     private Long id;
     private Long fournisseurId;
-    private Long productId;
-    private int quantite;
     private double montantFacture;
     private String description;
     private Date dateCreation;
+    private Set<Achat> achats;
 
-    public Facture(Long fournisseurId, Long productId, int quantite, double montant, String description, Date dateCreation) {
+    public Facture() {
+    }
+
+    public Facture(Long fournisseurId, double montant, String description, Date dateCreation) {
         this.fournisseurId = fournisseurId;
-        this.productId = productId;
-        this.quantite = quantite;
         this.montantFacture = montant;
         this.description = description;
         this.dateCreation = dateCreation;
     }
 
-    public Facture(Long id, Long fournisseurId, Long productId, int quantite, double montant, String description, Date dateCreation) {
+    public Facture(Long id, Long fournisseurId, double montant, String description, Date dateCreation) {
         this.id = id;
         this.fournisseurId = fournisseurId;
-        this.productId = productId;
-        this.quantite = quantite;
         this.montantFacture = montant;
         this.description = description;
         this.dateCreation = dateCreation;
@@ -44,22 +43,6 @@ public class Facture {
 
     public void setFournisseurId(Long fournisseurId) {
         this.fournisseurId = fournisseurId;
-    }
-
-    public Long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
-    public int getQuantite() {
-        return quantite;
-    }
-
-    public void setQuantite(int quantite) {
-        this.quantite = quantite;
     }
 
     public double getMontant() {
@@ -84,5 +67,34 @@ public class Facture {
 
     public void setDateCreation(Date dateCreation) {
         this.dateCreation = dateCreation;
+    }
+    public double getMontantFacture() {
+        return montantFacture;
+    }
+
+    public void setMontantFacture(double montantFacture) {
+        this.montantFacture = montantFacture;
+    }
+
+    public Set<Achat> getAchats() {
+        return achats;
+    }
+
+    public void setAchats(Set<Achat> achats) {
+        this.achats = achats;
+    }
+
+    @Override
+    public String toString() {
+        String achatTream = "";
+        for(Achat achat: this.achats) {
+            achatTream = achatTream + achat.toString();
+        }
+
+        return  "{ ID: " + this.id + ", " +
+                "montantFacture: " + this.montantFacture + " , " +
+                "description: " + this.description + " , " +
+                "achats: [" + achatTream + " ], " +
+                "dateCreation: " + this.dateCreation + " }, ";
     }
 }

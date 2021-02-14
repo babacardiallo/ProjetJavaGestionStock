@@ -14,7 +14,6 @@ public class ConnexionDB {
             String url = "jdbc:mysql://" + Constant.HOST + ":" + Constant.PORT + "/" + Constant.DB_NAME;
             Class.forName("com.mysql.jdbc.Driver");
             connection = (Connection) DriverManager.getConnection(url, Constant.USER_NAME, Constant.PASS_WORD);
-            System.out.println("Connexion Réussie");
         }  catch (ClassNotFoundException | SQLException classNotFoundException) {
             System.out.println(classNotFoundException.getMessage());
         }

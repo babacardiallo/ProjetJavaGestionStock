@@ -1,6 +1,6 @@
 package modeles;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 public class Categorie {
@@ -61,5 +61,12 @@ public class Categorie {
 
     public void setProduitList(List<Produit> produitList) {
         this.produitList = produitList;
+    }
+
+    @Override
+    public String toString() {
+        return  "{ ID: " + this.id + ", " +
+                        "Nom: " + this.nom + " , " +
+                        "Date creation: " + this.dateCreation + " }";
     }
 }

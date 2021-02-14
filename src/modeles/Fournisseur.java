@@ -1,6 +1,7 @@
 package modeles;
 
-import java.util.Date;
+
+import java.sql.Date;
 
 public class Fournisseur {
 
@@ -10,6 +11,9 @@ public class Fournisseur {
     private String telephone;
     private String email;
     private Date dateCreation;
+
+    public Fournisseur() {
+    }
 
     public Fournisseur(String denomination, String adresse, String telephone, String email, Date dateCreation) {
         this.denomination = denomination;
@@ -74,5 +78,15 @@ public class Fournisseur {
 
     public void setDateCreation(Date dateCreation) {
         this.dateCreation = dateCreation;
+    }
+
+    @Override
+    public String toString() {
+        return  "{ ID: " + this.id + ", " +
+                "denomination: " + this.denomination + " , " +
+                "telephone: " + this.telephone + " , " +
+                "adresse: " + this.adresse+ " , " +
+                "email: " + this.email + " , " +
+                "dateCreation: " + this.dateCreation + " }, ";
     }
 }

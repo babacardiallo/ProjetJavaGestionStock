@@ -1,10 +1,18 @@
 package test;
 
-import connexionDB.ConnexionDB;
+import fenetres.Principale;
+import modeles.Facture;
+import service.FactureService;
+
+import java.util.Set;
 
 public class ProjetGestionStock {
 
     public static void main(String[] args) {
-        ConnexionDB.getMysqlConnexion();
+        FactureService factureService = new FactureService();
+        Set<Facture> factures = factureService.getAll();
+        for (Facture facture: factures) {
+            System.out.println(facture.toString());
+        }
     }
 }
